@@ -10,13 +10,13 @@
             </li>
 
             <li class="sidebar-item active">
-                <a class="sidebar-link" href="index.html">
+                <a class="sidebar-link" href="{{ url_for('dashboard.index') }}">
       <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Dashboard</span>
     </a>
             </li>
 
             <li class="sidebar-item">
-                <a class="sidebar-link" href="pages-profile.html">
+                <a class="sidebar-link" href="{{ url_for('user.index') }}">
       <i class="align-middle" data-feather="user"></i> <span class="align-middle">Profile</span>
     </a>
             </li>
