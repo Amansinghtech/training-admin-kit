@@ -24,3 +24,17 @@ sinup => password (plaintext) => server MD5(text, KEY) => hash(aklhnqht02135saef
 login => password (plaintext), username => server Mongodb(username) => hash(aklhnqht02135saefg)
 
 plaintext => [key][md5] => hash(aklhnqht02135saefg)
+
+url string
+
+select _ from users
+1000 _ 10
+
+CDN (content delivery network) => URL (unique)
+
+minio, amazon S3
+buckets (folder name)
+expiry based url
+authorization
+cluster database
+LVM,zfs

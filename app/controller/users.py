@@ -18,9 +18,10 @@ class usersController:
     @staticmethod
     def getUser(username):
 
-        result = Users.objects.get(username=username)
+        result = Users.objects(username=username)
+        print(result)
         if result:
-            return result
+            return result[0]
         else:
             return False
 

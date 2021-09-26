@@ -1,3 +1,4 @@
+from math import sin
 from flask import Blueprint, json, request, render_template, jsonify
 from app.controller.users import usersController as UC
 signup = Blueprint('singup', __name__)
@@ -16,15 +17,15 @@ def signup_index():
         return "hello world"
 
 
-@signup.route('/test')
+@signup.route('/addUser')
 def test():
     user = {
-        "username": "aman123",
-        "fname": "aman",
-        "lname": "singh",
+        "username": "deepak123",
+        "fname": "Deepak",
+        "lname": "Yadu",
         "phone": 1234567890,
-        "email": "aman@newklio.com",
-        "passwd": "aman@abc123"
+        "email": "deepak@newklio.com",
+        "passwd": "deepak@abc123"
     }
 
     test = UC.addUser(user)
@@ -48,3 +49,20 @@ def getAllUsers():
 def deleteUser():
     test = UC.deleteUser()
     return jsonify(test)
+
+
+@signup.route('/testLogin')
+def testLogin():
+    user = {
+        "username": "deepak123",
+        "passwd": "deepak@ab123"
+    }
+
+    test = UC.getUser(user["username"])
+    if test:
+        if test.checkPassHash(user["passwd"]):
+            return f"{test.username} is logged in successfully"
+        else:
+            return "username or password incorrect"
+    else:
+        return "username or password incorrect"
